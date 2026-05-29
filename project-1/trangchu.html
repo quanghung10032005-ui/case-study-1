@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #div_trangchutitle{
+        border: 2px solid blanchedalmond; 
+        background-color: aliceblue;
+        border-radius: 10px;
+    }
+    h1{
+        font-size: 36px;
+        margin-bottom: 20px;
+        display:inline-block;
+        margin-right: 95vh;
+        align-items: left;
+        margin-left: 100px;
+        font-family: Arial, sans-serif;
+        font-size: 48px;
+        color: #333;
+    }
+    #btn_dangnhap, #btn_dangky{
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 40px;
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        
+        
+    }
+    #btn_dangnhap:hover, #btn_dangky:hover{
+        background-color: #0056b3;
+    }
+    #div_sanpham{
+        margin-top: 20px;
+        display: flex;
+        justify-content: left;
+    }
+    .iphoneprm{
+        border: 2px solid rgb(255, 184, 179); 
+        background-color: aliceblue;
+        border-radius: 10px;
+        padding: 15px;
+        margin:10px
+        
+    }
+    #title_sp{
+        text-align: center;
+        font-family: Arial, sans-serif;
+        color: #333;
+        display: block;
+
+    }
+    img{
+        cursor: pointer;;
+    }
+    img:hover{
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+    #div_sanpham{
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+        background-color: #f76767;
+    }
+</style>
+<body>
+    <div id="div_trangchutitle">
+        <h1>Trang chủ</h1>
+        <button type="button" onclick="dangnhap()" id="btn_dangnhap">Đăng nhập</button>
+        <button type="button" onclick="dangky()" id="btn_dangky">Đăng ký</button>
+    </div>
+    <div id="div_sanpham" style="display:flex;flex-direction: column;">
+        <div>
+        <h2 style="display:block;clear:both">FLASH SALE</h2><br>
+        <div class="iphoneprm" onclick="dangnhap()">
+        <img  src="images/iphone17.png" alt="iPhone 17" height="200px">
+        <br>
+        <span class="titlesanpham" style="font-weight: bold;">iPhone 17 Pro Max</span><br>
+        <span class="sanpham">Giá: 30.000.000đ</span>
+        <span class="sanpham">Giá gốc: 35.000.000đ</span><br>
+        <span class="sanpham">Giảm: 5.000.000đ</span>
+        </div>
+        <div class="iphoneprm" onclick="dangnhap()" style="display: block;">
+        <img  src="images/iphone16.png" alt="iPhone 17" height="200px">
+        <br>
+        <span class="titlesanpham" style="font-weight: bold;">iPhone 16 Pro Max</span><br>
+        <span class="sanpham">Giá: 25.000.000đ</span><br>
+        <span class="sanpham">Giá gốc: 30.000.000đ</span><br>
+        <span class="sanpham">Giảm: 5.000.000đ</span>   
+            </div>
+            <div class="iphoneprm" onclick="dangnhap()" style="display: block;">
+        </div>
+    </div>
+    <script>
+        function dangnhap() {
+           window.location.href="Login.html";
+        }
+
+    </script>
+</body>
+</html>

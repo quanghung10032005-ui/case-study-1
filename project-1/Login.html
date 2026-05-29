@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="title">Đăng nhập</div>
+    <form id="form_dangnhap">
+        <div>
+            <label >Tên đăng nhập</label><br>
+            <input type="text" name="tendangnhap" id="tendangnhap" placeholder="--Nhập tên đăng nhập--"><br>
+            <label >Mật khẩu</label><br>
+            <input type="password" name="matkhau" id="matkhau" placeholder="--Nhập mật khẩu--"><br>
+        </div>
+        <div id="div_btn">
+            <button type="submit" id="loginbtn">
+                Đăng nhập
+            </button>
+            <button type="button" id="registerbtn">
+                Đăng ký
+            </button><br>
+            <button type="button" id="backbtn" onclick="quaylai()">Quay lại</button><br>
+            <a href="#" id="forgot-password">Quên mật khẩu?</a>
+        </div>
+    </form>
+    <script>
+        function quaylai() {
+            window.location.href="trangchu.html";
+        }
+    </script>
+        
+</body>
+</html>
