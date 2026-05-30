@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Login.js"></script>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    #title{
+        font-size: 36px;
+        margin-bottom: 100px;
+        display:inline-block;
+        margin-right: 70vh;
+        align-items: left;
+        margin-left: 100px;
+        font-family: Arial, sans-serif;
+        font-size: 48px;
+        color: #333;
+        margin-top:20px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    #div_chucnang{
+        margin-left: 100px;
+    }
+    #div_chucnang button{
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 40px;
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        font-family: Arial, sans-serif; 
+        width: 300px;
+    }
+    #div_chucnang button:hover{
+        background-color: #0056b3; 
+    }
+    div#hienthi{
+        border: 2px solid blanchedalmond; 
+        background-color: aliceblue;
+        border-radius: 10px;
+        margin: 20px;
+        padding: 20px;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td{
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ccc;
+        background-color: rgb(218, 235, 250);
+        color: #333;
+
+    }
+    th{
+        background-color: rgb(6, 136, 250);
+        border: 2px solid blanchedalmond;
+        color:white;
+    }
+    #listtaikhoan{
+        border: 2px solid rgb(10, 10, 10);
+        padding: 50px;
+        width: 50%;
+        background-color: aliceblue;
+    }
+    #tongthe{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: #faf0f0;
+    }
+    .btn{
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 40px;
+        background-color: #3dd0f9;
+        color: white;  
+    }
+    .btn:hover{
+         background-color:#439af8 ;
+     }
+     form{
+        border: 1px solid rgb(207, 248, 227); 
+        background-color: rgb(230, 241, 252);
+        border-radius: 10px;
+        padding: 20px;
+        width : 60%px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin-top: 20px;
+        
+     }
+     input{
+        width: 40vh;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgb(242, 245, 248);
+     }
+     select{
+        width: 40vh;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgb(242, 245, 248);
+     }
+     option{
+        background-color: rgb(231, 239, 248);
+     }
+     legend{
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+     }
+</style>
+<body>
+    <div id="tongthe">
+    <div id="title">Quản lý tài khoản</div>
+    <div id="listtaikhoan">
+    
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Tên đăng nhập</th>
+                <th>Mật khẩu</th>
+                <th>Vai trò</th>
+                <th colspan="2">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="list_account" >
+
+        </tbody>
+        </div>
+        </div>
+    </table>
+    <div style="display: flex; justify-content: center; margin-top: 20px;">
+    <button type="button" class="btn" onclick="openaddform()">Thêm tài khoản</button>
+    <button type="button" class="btn" onclick="location.href='Quanli.html'">Quay lại</button>
+</div>
+<form action="" id="addform" style="display: none;">
+        <fieldset>
+            <legend>Thêm tài khoản mới</legend>
+        <label for="username">Tên đăng nhập:</label><br>
+        <input type="text" id="username" name="username" placeholder="--Nhập tên đăng nhập--"><br>
+        <label for="password">Mật khẩu:</label><br>
+        <input type="password" id="password" name="password" placeholder="--Nhập mật khẩu--"><br>
+        <label for="chucvu">Chức vụ:</label><br>
+        <select id="chucvu" name="chucvu">
+            <option value="">--Chọn chức vụ--</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+        </select><br>
+        <button type="button" class="btn" onclick="add()">Thêm tài khoản</button>
+        <button type="button" class="btn" onclick="closeaddform()">Đóng</button>
+        </fieldset>
+    </form>
+    <form action="" id="updateform" style="display: none;">
+        <fieldset>
+                <legend>Cập nhật tài khoản</legend>
+            <label for="username">Tên đăng nhập:</label><br>
+            <input type="text" id="updatename" name="name" placeholder="--Nhập tên đăng nhập--"><br>
+            <label for="password">Mật khẩu:</label><br>
+            <input type="password" id="updatepassword" name="password" placeholder="--Nhập mật khẩu--"><br>
+            <label for="chucvu">Chức vụ:</label><br>
+            <select id="updatechucvu" name="chucvu">
+                <option value="">--Chọn chức vụ--</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select><br>
+            <button type="button" class="btn" onclick="update(currentSelect)">Cập nhật tài khoản</button>
+            <button type="button" class="btn" onclick="closeupdateform()">Đóng</button>
+        </fieldset>
+    </form>
+    <script>
+        let currentSelect=-1;
+        let users=JSON.parse(localStorage.getItem("danhsachUser")) || [];
+        function hienThiQuanLyTaiKhoan(){
+            let str = "";
+            for(let i=0;i<users.length;i++){
+                str += `
+                    <tr>
+                        <td>${users[i].username}</td>
+                        <td>${users[i].password}</td>
+                        <td>${users[i].chucvu}</td>
+                        <td><button type="button" class="btn" onclick="deletedata(${i})">Xóa</button></td>
+                        <td><button type="button" class="btn" onclick="sua(${i})">Sửa</button></td>
+                        </tr>
+                `;
+            }
+            document.getElementById("list_account").innerHTML = str;
+        }
+        function add(){
+            let name=document.getElementById("username").value;
+            let password=document.getElementById("password").value;
+            let chucvu=document.getElementById("chucvu").value;
+            if(name==""||password==""||chucvu==""){
+                alert("Vui lòng điền đầy đủ thông tin!");
+                return;
+            }
+            for(let i=0;i<users.length;i++){
+                if(users[i].username === name){
+                    alert("Tên đăng nhập đã tồn tại!");
+                    return;
+                }
+            }
+            let newUser=new User(name,password,chucvu);
+            users.push(newUser);
+            localStorage.setItem("danhsachUser",JSON.stringify(users));
+            alert("Thêm tài khoản thành công!");
+            document.getElementById("addform").style.display="none";
+            hienThiQuanLyTaiKhoan();
+        }
+        function deletedata(index){
+            if(confirm("Bạn có chắc muốn xóa tài khoản này?")) {
+                users.splice(index,1);
+                localStorage.setItem("danhsachUser",JSON.stringify(users));
+                alert("Xóa tài khoản thành công!");
+                hienThiQuanLyTaiKhoan();
+            }
+        }
+        function sua(index){
+            document.getElementById("updatename").value=users[index].username;
+            document.getElementById("updatepassword").value=users[index].password;
+            document.getElementById("updatechucvu").value=users[index].chucvu;
+            document.getElementById("updateform").style.display="block";
+            currentSelect=index;
+
+        }
+        function update(index){
+            let name=document.getElementById("updatename").value;
+            let password=document.getElementById("updatepassword").value;
+            let chucvu=document.getElementById("updatechucvu").value;
+            if(name==""||password==""||chucvu==""){
+                alert("Vui lòng điền đầy đủ thông tin!");
+                return;
+            }
+            for(let i=0;i<users.length;i++){
+                if(users[i].name==name ){
+                    alert("Tên đăng nhập đã tồn tại!");
+                    return;
+                }
+            let newUser=new User(name,password,chucvu);
+            users[index]=newUser;
+            localStorage.setItem("danhsachUser",JSON.stringify(users));
+            alert("Cập nhật tài khoản thành công!");
+            document.getElementById("updateform").reset();
+            
+            }
+            hienThiQuanLyTaiKhoan();
+        }
+        function openaddform(){
+            document.getElementById("addform").style.display="block";
+        }
+        function closeaddform(){
+            document.getElementById("addform").style.display="none";
+        }
+        function closeupdateform(){
+            document.getElementById("updateform").style.display="none";
+        }
+        hienThiQuanLyTaiKhoan();
+        
+    </script>
+</body>
+</html>

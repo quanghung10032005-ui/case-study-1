@@ -18,9 +18,9 @@
         margin-right: 95vh;
         align-items: left;
         margin-left: 100px;
-        font-family: Arial, sans-serif;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-size: 48px;
-        color: #333;
+        color: lab(56.02% 71.24 57.79);
     }
     #btn_dangnhap, #btn_dangky{
         margin: 10px;
@@ -40,9 +40,12 @@
         background-color: #0056b3;
     }
     #div_sanpham{
-        margin-top: 20px;
         display: flex;
-        justify-content: left;
+    flex-direction: column; 
+    background-color: #f76767;
+    padding: 20px;
+    border-radius: 10px;
+        
     }
     .iphoneprm{
         border: 2px solid rgb(255, 184, 179); 
@@ -72,38 +75,89 @@
         flex-wrap: wrap;
         background-color: #f76767;
     }
+
 </style>
 <body>
+    
     <div id="div_trangchutitle">
-        <h1>Trang chủ</h1>
+        <h1>HungPhone</h1>
         <button type="button" onclick="dangnhap()" id="btn_dangnhap">Đăng nhập</button>
         <button type="button" onclick="dangky()" id="btn_dangky">Đăng ký</button>
     </div>
     <div id="div_sanpham" style="display:flex;flex-direction: column;">
-        <div>
         <h2 style="display:block;clear:both">FLASH SALE</h2><br>
+        <div style="display:flex;flex-wrap: wrap;">
+
         <div class="iphoneprm" onclick="dangnhap()">
         <img  src="images/iphone17.png" alt="iPhone 17" height="200px">
         <br>
         <span class="titlesanpham" style="font-weight: bold;">iPhone 17 Pro Max</span><br>
-        <span class="sanpham">Giá: 30.000.000đ</span>
+        <span class="sanpham">Giá: 30.000.000đ</span><br>
         <span class="sanpham">Giá gốc: 35.000.000đ</span><br>
         <span class="sanpham">Giảm: 5.000.000đ</span>
         </div>
+
         <div class="iphoneprm" onclick="dangnhap()" style="display: block;">
         <img  src="images/iphone16.png" alt="iPhone 17" height="200px">
         <br>
         <span class="titlesanpham" style="font-weight: bold;">iPhone 16 Pro Max</span><br>
         <span class="sanpham">Giá: 25.000.000đ</span><br>
         <span class="sanpham">Giá gốc: 30.000.000đ</span><br>
-        <span class="sanpham">Giảm: 5.000.000đ</span>   
-            </div>
-            <div class="iphoneprm" onclick="dangnhap()" style="display: block;">
+        <span class="sanpham">Giảm: 5.000.000đ</span>  
+         </div>
+
+         <div class="iphoneprm" onclick="dangnhap()" style="display: block;">
+        <img  src="images/iphone14.png" alt="iPhone 17" height="200px">
+        <br>
+        <span class="titlesanpham" style="font-weight: bold;">iPhone 14 Pro Max</span><br>
+        <span class="sanpham">Giá: 20.000.000đ</span><br>
+        <span class="sanpham">Giá gốc: 25.000.000đ</span><br>
+        <span class="sanpham">Giảm: 5.000.000đ</span>
         </div>
-    </div>
+
+        <div class="iphoneprm" onclick="dangnhap()" style="display: block;">
+        <img  src="images/iphone15.png" alt="iPhone 17" height="200px">
+        <br>
+        <span class="titlesanpham" style="font-weight: bold;">iPhone 15 Pro Max</span><br>
+        <span class="sanpham">Giá: 22.000.000đ</span><br>
+        <span class="sanpham">Giá gốc: 27.000.000đ</span><br>
+        <span class="sanpham">Giảm: 5.000.000đ</span>
+        </div>
+
+        <div class="iphoneprm" onclick="dangnhap()" style="display: block;">
+        <img src="images/samsungs26ultra.png" alt="samsungs26ultra" height="200px">
+        <br>
+        <span class="titlesanpham" style="font-weight: bold;">Samsung S26 Ultra</span><br>
+        <span class="sanpham">Giá: 18.000.000đ</span><br>
+        <span class="sanpham">Giá gốc: 23.000.000đ</span><br>
+        <span class="sanpham">Giảm: 5.000.000đ</span>
+        </div>
+
+        <div class="iphoneprm" onclick="dangnhap()" style="display: block;">
+        <img src="images/samsungs25ultra.png" alt="samsungs25ultra" height="200px">
+        <br>
+        <span class="titlesanpham" style="font-weight: bold;">Samsung S25 Ultra</span><br>
+        <span class="sanpham">Giá: 15.000.000đ</span><br>
+        <span class="sanpham">Giá gốc: 20.000.000đ</span><br>
+        <span class="sanpham">Giảm: 5.000.000đ</span>
+        </div>
+        <div action="" class="thongtinlienlac">
+        <h2 style="display:block;clear:both">THÔNG TIN LIÊN HỆ</h2><br>
+        <p style="font-size: 18px; font-family: Arial, sans-serif
+        ;color: #333;">Địa chỉ: 123 Đường ABC, Quận XYZ, Thành phố Hà Nội</p>
+        <p style="font-size: 18px; font-family: Arial, sans-serif
+        ;color: #333;">Số điện thoại: 0123456789</p>
+        <p style="font-size: 18px; font-family: Arial, sans-serif
+        ;color: #333;">Email:
+        <a href="mailto:" style="color: #007bff; text-decoration: none;">
+
+        </div>
     <script>
         function dangnhap() {
            window.location.href="Login.html";
+        }
+        function dangky() {
+            window.location.href="Register.html";
         }
 
     </script>

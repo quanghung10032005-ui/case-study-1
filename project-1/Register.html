@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Login.js"></script>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    #title{
+        font-size: 36px;
+        margin-bottom: 10px;      
+        align-items: center;
+        font-family: Arial, sans-serif;
+        font-size: 48px;
+        color: #333;
+    }
+    #form_dangky{
+        border: 1px solid rgb(207, 248, 227); 
+        background-color: aliceblue;
+        border-radius: 10px;
+        padding: 70px;
+        width : 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin-top: 100px;
+        
+    }
+    label{
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+    input[type="text"], input[type="password"]{
+        width: 30vh;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgb(214, 249, 231);
+    }
+    #div_btn{
+        text-align: center;
+    }
+    .btn{
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 40px;
+        background-color: #007bff;
+        color: white;  
+    }
+    #registerbtn:hover{
+         background-color:#0056b3 ;
+     }
+</style>
+<body>
+    
+    <form id="form_dangky">
+        <div id="title">Đăng ký</div>
+        <div>
+            <label >Tên đăng nhập</label><br>
+            <input type="text" name="tendangnhap" id="tendangnhap" placeholder="--Nhập tên đăng nhập--"><br>
+            <label >Mật khẩu</label><br>
+            <input type="password" name="matkhau" id="matkhau" placeholder="--Nhập mật khẩu--"><br>
+            <label >Xác nhận mật khẩu</label><br>
+            <input type="password" name="xacnhanmatkhau" id="xacnhanmatkhau" placeholder="--Xác nhận mật khẩu--"><br>
+        </div>
+        <div id="div_btn">
+            <button type="button" onclick="dangnhap()" class="btn">
+                Đăng nhập
+            </button>
+            <button type="button" onclick="dangky()" class="btn">
+                Đăng ký
+            </button>
+        </div>
+    </form>
+    <script>
+        let users = JSON.parse(localStorage.getItem("danhsachUser")) || [];
+
+        function dangky() {
+            let tendangnhap = document.getElementById("tendangnhap").value;
+            let matkhau = document.getElementById("matkhau").value;
+            let xacnhanmatkhau = document.getElementById("xacnhanmatkhau").value;
+            if(tendangnhap==""||matkhau==""||xacnhanmatkhau==""){
+                alert("Vui lòng điền đầy đủ thông tin!");
+                return;
+            }
+
+            if (matkhau !== xacnhanmatkhau) {
+                alert("Mật khẩu và xác nhận mật khẩu không khớp!");
+                return;
+            }
+
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].username === tendangnhap) {
+                    alert("Tên đăng nhập đã tồn tại!");
+                    return;
+                }
+            }
+
+            let newUser=new User(tendangnhap, matkhau, "user");
+            users.push(newUser);
+            localStorage.setItem("danhsachUser",JSON.stringify(users));
+            alert("Đăng ký thành công!");
+            window.location.href="Login.html";
+        }
+        function dangnhap() {
+            window.location.href="Login.html";
+        }
+    </script>
+</body>
+</html>
