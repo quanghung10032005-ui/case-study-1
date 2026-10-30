@@ -7,61 +7,124 @@
     <script src="Login.js"></script>
 </head>
 <style>
-    body{
-        margin: 0;
-        padding: 0;
-        background-color: #f5f5f5;
+    * {
+        box-sizing: border-box;
     }
-    #title{
-        font-size: 36px;
-        margin-bottom: 10px;      
+
+    body {
+        display: flex;
         align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 24px;
+        background: linear-gradient(135deg, #eff6ff, #f8fafc 55%, #ecfdf5);
+        color: #1f2937;
         font-family: Arial, sans-serif;
-        font-size: 48px;
-        color: #333;
     }
-    #form_dangky{
-        border: 1px solid rgb(207, 248, 227); 
-        background-color: aliceblue;
-        border-radius: 10px;
-        padding: 70px;
-        width : 400px;
+
+    #form_dangky {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        margin: auto;
-        margin-top: 100px;
-        
+        width: 100%;
+        max-width: 440px;
+        margin: 0;
+        padding: 40px;
+        border: 1px solid #e5eaf2;
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 0 16px 40px rgba(31, 41, 55, 0.1);
     }
-    label{
-        font-family: Arial, sans-serif;
-        color: #333;
-    }
-    input[type="text"], input[type="password"]{
-        width: 30vh;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: rgb(214, 249, 231);
-    }
-    #div_btn{
+
+    #title {
+        margin-bottom: 28px;
+        color: #1d4ed8;
+        font-size: 34px;
+        font-weight: 700;
         text-align: center;
     }
-    .btn{
-        margin: 10px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 40px;
-        background-color: #007bff;
-        color: white;  
+
+    #form_dangky > div:nth-child(2) {
+        width: 100%;
     }
-    #registerbtn:hover{
-         background-color:#0056b3 ;
-     }
+
+    label {
+        display: inline-block;
+        margin-bottom: 8px;
+        color: #374151;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        margin-bottom: 18px;
+        padding: 12px 14px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        outline: none;
+        background: #f9fafb;
+        color: #111827;
+        font: inherit;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    #div_btn {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        margin-top: 4px;
+    }
+
+    .btn {
+        flex: 1;
+        padding: 12px 16px;
+        border: 1px solid #2563eb;
+        border-radius: 8px;
+        background: #2563eb;
+        color: #fff;
+        cursor: pointer;
+        font: bold 15px Arial, sans-serif;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn:first-child {
+        border-color: #e5e7eb;
+        background: #f3f4f6;
+        color: #374151;
+    }
+
+    .btn:hover {
+        transform: translateY(-1px);
+        background: #1d4ed8;
+        color: #fff;
+    }
+
+    @media (max-width: 480px) {
+        body {
+            padding: 16px;
+        }
+
+        #form_dangky {
+            padding: 30px 22px;
+        }
+
+        #title {
+            font-size: 30px;
+        }
+
+        #div_btn {
+            flex-direction: column;
+        }
+    }
 </style>
 <body>
     

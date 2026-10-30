@@ -6,76 +6,175 @@
     <title>Document</title>
 </head>
 <style>
-    #div_trangchutitle{
-        border: 2px solid blanchedalmond; 
-        background-color: aliceblue;
-        border-radius: 10px;
+    * {
+        box-sizing: border-box;
     }
-    h1{
-        font-size: 36px;
-        margin-bottom: 20px;
-        display:inline-block;
-        margin-right: 95vh;
-        align-items: left;
-        margin-left: 100px;
+
+    body {
+        margin: 0;
+        padding: 24px;
+        background: #f4f7fb;
+        color: #1f2937;
+        font-family: Arial, sans-serif;
+    }
+
+    #div_trangchutitle {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        max-width: 1200px;
+        margin: 0 auto 28px;
+        padding: 16px 24px;
+        border: 1px solid #e5eaf2;
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: 0 4px 16px rgba(31, 41, 55, 0.06);
+    }
+
+    h1 {
+        margin: 0 auto 0 0;
+        color: #2563eb;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-size: 48px;
-        color: lab(56.02% 71.24 57.79);
+        font-size: 36px;
     }
-    #btn_dangnhap, #btn_dangky{
-        margin: 10px;
-        font-size: 16px;
+
+    #btn_dangnhap,
+    #btn_dangky {
+        padding: 11px 22px;
+        border: 1px solid #2563eb;
+        border-radius: 8px;
+        background: #2563eb;
+        color: #fff;
         cursor: pointer;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 40px;
-        background-color: #007bff;
-        color: white;
+        font-size: 15px;
         font-weight: bold;
-        font-family: Arial, sans-serif;
-        
-        
+        transition: background-color 0.2s ease, transform 0.2s ease;
     }
-    #btn_dangnhap:hover, #btn_dangky:hover{
-        background-color: #0056b3;
+
+    #btn_dangky {
+        background: #fff;
+        color: #2563eb;
     }
-    #div_sanpham{
-        display: flex;
-    flex-direction: column; 
-    background-color: #f76767;
-    padding: 20px;
-    border-radius: 10px;
-        
+
+    #btn_dangnhap:hover,
+    #btn_dangky:hover {
+        transform: translateY(-1px);
+        background: #1d4ed8;
+        color: #fff;
     }
-    .iphoneprm{
-        border: 2px solid rgb(255, 184, 179); 
-        background-color: aliceblue;
-        border-radius: 10px;
-        padding: 15px;
-        margin:10px
-        
+
+    #div_sanpham {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 6px 24px rgba(31, 41, 55, 0.07);
     }
-    #title_sp{
-        text-align: center;
-        font-family: Arial, sans-serif;
-        color: #333;
+
+    #div_sanpham > h2,
+    .thongtinlienlac h2 {
+        margin: 0 0 18px;
+        color: #1f2937;
+        font-size: 24px;
+    }
+
+    #div_sanpham > div:first-of-type {
+        gap: 18px;
+        justify-content: flex-start;
+    }
+
+    .iphoneprm {
+        flex: 1 1 220px;
+        max-width: 280px;
+        margin: 0;
+        padding: 18px;
+        border: 1px solid #e5eaf2;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 3px 12px rgba(31, 41, 55, 0.06);
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .iphoneprm:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 22px rgba(31, 41, 55, 0.12);
+    }
+
+    .iphoneprm img {
         display: block;
-
-    }
-    img{
-        cursor: pointer;;
-    }
-    img:hover{
-        transform: scale(1.05);
-        transition: transform 0.3s ease;
-    }
-    #div_sanpham{
-        display: flex;
-        justify-content: left;
-        flex-wrap: wrap;
-        background-color: #f76767;
+        width: 100%;
+        height: 190px;
+        margin-bottom: 12px;
+        object-fit: contain;
+        transition: transform 0.2s ease;
     }
 
+    .titlesanpham {
+        display: inline-block;
+        margin-bottom: 8px;
+        color: #111827;
+        font-size: 17px;
+    }
+
+    .sanpham {
+        display: inline-block;
+        margin: 3px 0;
+        color: #6b7280;
+    }
+
+    .iphoneprm .sanpham:nth-of-type(2) {
+        color: #dc2626;
+        font-weight: bold;
+    }
+
+    .thongtinlienlac {
+        width: 100%;
+        margin-top: 30px;
+        padding: 22px;
+        border-radius: 12px;
+        background: #f4f7fb;
+    }
+
+    .thongtinlienlac p {
+        margin: 8px 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 14px;
+        }
+
+        #div_trangchutitle {
+            flex-wrap: wrap;
+            padding: 16px;
+        }
+
+        h1 {
+            width: 100%;
+            font-size: 30px;
+        }
+
+        #btn_dangnhap,
+        #btn_dangky {
+            flex: 1;
+            padding: 10px 12px;
+        }
+
+        #div_sanpham {
+            padding: 20px 14px;
+        }
+
+        #div_sanpham > div:first-of-type {
+            justify-content: center;
+        }
+
+        .iphoneprm {
+            flex-basis: 100%;
+            max-width: none;
+        }
+    }
 </style>
 <body>
     
