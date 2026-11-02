@@ -213,8 +213,8 @@
                 <legend>Thông tin sản phẩm</legend>
                 <input type="text" id="ma" placeholder="Mã sản phẩm"><br>
                 <input type="text" id="ten" placeholder="Tên sản phẩm"><br>
-                <input type="number" id="gia" placeholder="Giá"><br>
-                <input type="number" id="soluong" placeholder="Số lượng"><br>
+                <input type="number" id="gia" min="0" placeholder="Giá"><br>
+                <input type="number" id="soluong" min="0" placeholder="Số lượng"><br>
                 <input type="text" id="mota" placeholder="Mô tả"><br>
                 <button class="btn" type="button" onclick="add()">Thêm sản phẩm</button>
                 <button class="btn" type="button" onclick="closeaddform()">Đóng</button>
@@ -226,8 +226,8 @@
                 <legend>Chỉnh sửa sản phẩm</legend>
                 <input type="text" id="updatema" placeholder="Mã sản phẩm"><br>
                 <input type="text" id="updateten" placeholder="Tên sản phẩm"><br>
-                <input type="number" id="updategia" placeholder="Giá"><br>
-                <input type="number" id="updatesoluong" placeholder="Số lượng"><br>
+                <input type="number" id="updategia" min="0" placeholder="Giá"><br>
+                <input type="number" id="updatesoluong" min="0" placeholder="Số lượng"><br>
                 <input type="text" id="updatemota" placeholder="Mô tả"><br>
                 <button class="btn" type="button" onclick="update(currentSelect)">Lưu thay đổi</button>
                 <button class="btn" type="button" onclick="closeupdateform()">Đóng</button>
@@ -242,8 +242,21 @@
 </div>
     <script>
         let currentSelect=-1;
-        let products=JSON.parse(localStorage.getItem("products")) || [];
-        if(products.length==0){
+        let storedProducts=localStorage.getItem("products");
+        let products=[];
+        if(storedProducts!==null){
+            try{
+                products=JSON.parse(storedProducts);
+                if(!Array.isArray(products)){
+                    throw new TypeError("Dữ liệu sản phẩm phải là một danh sách.");
+                }
+            }catch(error){
+                console.error("Không thể đọc dữ liệu sản phẩm đã lưu.",error);
+                alert("Dữ liệu sản phẩm bị lỗi. Vui lòng kiểm tra lại!");
+                products=[];
+            }
+        }
+        if(storedProducts===null){
         let product1=new Product("SP001","iPhone 17 Pro Max",30000000,100,"Điện thoại cao cấp của Apple");
         let product2=new Product("SP002","iPhone 16 Pro Max",25000000,150,"Điện thoại cao cấp của Apple");
         let product3=new Product("SP003","iPhone 14 Pro Max",20000000,200,"Điện thoại cao cấp của Apple");
@@ -253,19 +266,33 @@
         }
         let listsanpham=document.getElementById("listsanpham");
         function hienthisanpham(){
-            let str="";
+            listsanpham.replaceChildren();
             for(let i=0;i<products.length;i++){
-                str+=`<tr>
-                    <td>${products[i].ma}</td>
-                    <td>${products[i].ten}</td>
-                    <td>${products[i].gia}</td>
-                    <td>${products[i].soluong}</td>
-                    <td>${products[i].mota}</td>
-                    <td><button class="btn" type="button" onclick="deletedata(${i})">Xóa</button></td>
-                    <td><button class="btn" type="button" onclick="sua(${i})">Sửa</button></td>
-                </tr>`;
+                let row=document.createElement("tr");
+                [products[i].ma,products[i].ten,products[i].gia,products[i].soluong,products[i].mota].forEach(value=>{
+                    let cell=document.createElement("td");
+                    cell.textContent=value==null ? "" : value;
+                    row.appendChild(cell);
+                });
+                let deleteCell=document.createElement("td");
+                let deleteButton=document.createElement("button");
+                deleteButton.className="btn";
+                deleteButton.type="button";
+                deleteButton.textContent="Xóa";
+                deleteButton.onclick=()=>deletedata(i);
+                deleteCell.appendChild(deleteButton);
+                row.appendChild(deleteCell);
+
+                let updateCell=document.createElement("td");
+                let updateButton=document.createElement("button");
+                updateButton.className="btn";
+                updateButton.type="button";
+                updateButton.textContent="Sửa";
+                updateButton.onclick=()=>sua(i);
+                updateCell.appendChild(updateButton);
+                row.appendChild(updateCell);
+                listsanpham.appendChild(row);
             }
-            listsanpham.innerHTML=str;
         }
         function add(){
             let ma=document.getElementById("ma").value;
@@ -273,7 +300,7 @@
             let gia=document.getElementById("gia").value;
             let soluong=document.getElementById("soluong").value;
             let mota=document.getElementById("mota").value;
-            if(ma==""||ten==""||gia==""||soluong==""||mota==""){
+            if(ma.trim()===""||ten.trim()===""||gia.trim()===""||soluong.trim()===""||mota.trim()===""||Number(gia)<0||Number(soluong)<0){
                 alert("Vui lòng điền đầy đủ thông tin!");
                 return;
             }
@@ -284,6 +311,9 @@
             hienthisanpham();
         }
         function deletedata(index){
+            if(!Number.isInteger(index)||index<0||index>=products.length){
+                return;
+            }
             if(confirm("Bạn có chắc muốn xóa sản phẩm này?")){  
             products.splice(index,1);
             localStorage.setItem("products",JSON.stringify(products));
@@ -292,6 +322,9 @@
         }
     }
         function sua(index){
+            if(!Number.isInteger(index)||index<0||index>=products.length){
+                return;
+            }
             currentSelect=index;
             document.getElementById("updatema").value=products[index].ma;
             document.getElementById("updateten").value=products[index].ten;
@@ -306,7 +339,10 @@
             let gia=document.getElementById("updategia").value;
             let soluong=document.getElementById("updatesoluong").value;
             let mota=document.getElementById("updatemota").value;
-            if(ma==""||ten==""||gia==""||soluong==""||mota==""){
+            if(!Number.isInteger(index)||index<0||index>=products.length){
+                return;
+            }
+            if(ma.trim()===""||ten.trim()===""||gia.trim()===""||soluong.trim()===""||mota.trim()===""||Number(gia)<0||Number(soluong)<0){
                 alert("Vui lòng điền đầy đủ thông tin!");
                 return;
             }

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-mail": {
+      "source": "shaneholloman/mcp-agent-mail",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "a25781a39288dfde5a0775c1bc9eecd79b3dff390cd3f692e12725c954270073"
+    },
+    "senior-backend": {
+      "source": "LaiHuy05/FourSmart-new",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/senior-backend/SKILL.md",
+      "computedHash": "c15972382ed35ec141f419c3caec031156721d85b26c29fd22cd4cf9991acd7b"
+    },
+    "senior-frontend": {
+      "source": "LaiHuy05/FourSmart-new",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/senior-frontend/SKILL.md",
+      "computedHash": "e0e83f80d3eb965b1e36acb8a336333a5db1152ddacdc07e19bd715187a6a455"
+    },
+    "systematic-debugging": {
+      "source": "LaiHuy05/FourSmart-new",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/systematic-debugging/SKILL.md",
+      "computedHash": "76fbc4973428879e433a5a205ff29fdc993ca940d92d8dfa874997bac6c16ff2"
+    },
+    "verification-before-completion": {
+      "source": "LaiHuy05/FourSmart-new",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/verification-before-completion/SKILL.md",
+      "computedHash": "a601754d7bc96487b23101f2ed669e71df6468f6a005fa17d615f45e17d385c7"
+    }
+  }
+}
